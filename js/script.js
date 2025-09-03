@@ -1,4 +1,6 @@
-onEvent("button", "click", function () {
+console.log("script.js file says hello.")
+
+onEvent("sendButton", "click", function () {
 
     async function query(data) {
         const response = await fetch(
@@ -27,5 +29,5 @@ onEvent("button", "click", function () {
     }).then((response) => {
         console.log(JSON.stringify(response));
     });
-    
+
 });

@@ -1,4 +1,4 @@
-console.log("Helpers here.");
+console.log("helpers.js file says hello.");
 
 /**
  * helpers.js
