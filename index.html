@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <script>
+        (function () {
+            const isLocal = ['localhost', '127.0.0.1', '::1'].includes(location.hostname);
+            const baseHref = isLocal ? '/' : '/gen-ai-demo/';
+            const base = document.createElement('base');
+            base.setAttribute('href', baseHref);
+            document.head.prepend(base); // insert as the first element in <head>
+        })();
+    </script>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css' rel='stylesheet'>
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js'></script>
+    <link rel='stylesheet' href='css/style.css'>
+
+    <title>gen</title>
+    <link rel='icon' href='favicon.ico' type='image/x-icon'>
+</head>
+
+<body>
+
+    <div class="container myContainer d-flex justify-content-center">
+        <div class="card mx-auto p-5" style="width: 28rem;">
+
+            <h1 class="ttext-primary text-nowrap">Search AI</h1>
+
+            <div class="card-body">
+
+                <div id="dataDisplay">
+                </div>
+
+                <div class=" card-footer d-flex justify-content-center border">
+                    <button id="button" class="btn btn-primary">Search</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script src='js/helpers.js'></script>
+    <script src='js/secret-variables.js'></script>
+    <script src='js/script.js'></script>
+
+
+</body>
+
+</html>
