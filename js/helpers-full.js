@@ -412,6 +412,28 @@ function hasClass(id, className) {
   return false;
 }
 
+
+
+/**
+ * Change a CSS property of an element.
+ * @param {string} id - The id of the element.
+ * @param {string} property - CSS property (e.g. "color", "backgroundColor").
+ * @param {string|number} value - The new value.
+ * 
+ * @example
+ * setHTMLProperty("myDiv", "color", "blue");
+ */
+function _setHTMLProperty(id, property, value) {
+  var node = document.getElementById(id);
+  if (!node) {
+    console.warn("setHTMLProperty: Element with id '" + id + "' not found.");
+    return;
+  }
+  node[property] = value;
+  console.info("setHTMLProperty: #" + id + " → " + property + " = " + value);
+}
+
+
 /**
  * Change a CSS property of an element.
  * @param {string} id - The id of the element.
@@ -422,14 +444,28 @@ function hasClass(id, className) {
  * setHTMLProperty("myDiv", "color", "blue");
  */
 function setHTMLProperty(id, property, value) {
-  var el = document.getElementById(id);
-  if (!el) {
-    console.warn("setHTMLProperty: Element with id '" + id + "' not found.");
+  const node = document.getElementById(id);
+  if (!node) {
+    console.error(`setHTMLProperty: Element with id '${id}' not found.`);
     return;
   }
-  el.style[property] = value;
-  // console.info("setHTMLProperty: #" + id + " → " + property + " = " + value);
+
+  if (property in node) {
+    // Safe to set directly (e.g. placeholder, value, innerHTML)
+    node[property] = value;
+    console.info(`setHTMLProperty: #${id} → property '${property}' set to '${value}'`);
+  } else if (node.hasAttribute(property) || property.startsWith("data-")) {
+    // If it's an attribute (e.g. data-*), set with setAttribute
+    node.setAttribute(property, value);
+    console.info(`setHTMLProperty: #${id} → attribute '${property}' set to '${value}'`);
+  } else {
+    // Warn (or throw) if it looks unsupported
+    console.error(`setHTMLProperty: #${id} does not support property or attribute '${property}'`);
+    throw new Error(`Cannot set '${property}' on #${id}`);
+  }
 }
+
+
 
 /**
  * Set an element's style using a CSS text string.

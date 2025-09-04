@@ -7,41 +7,47 @@ console.log("chatbot.js file says hello.")
     What is the capital of Louisiana?
 */
 
-setValue("userInput", "");
+document.getElementById("userInput").value = "";    // setValue("userInput", "");
 changePlaceholder("Your sentence here...");
 
 let botReply = "";
 let userInput = "";
 
 
-onEvent("sendButton", "click", function () {
+// onEvent("sendButton", "click", function () {
+document.getElementById("sendButton").addEventListener("click", () => {
 
-    userInput = getValue("userInput")
+    userInput = document.getElementById("userInput").value      // getValue("userInput")
 
     if (userInput) {
-        removeClass("userInput", "error-placeholder");
-        thinking();
-        setText("aiResponse", "Thinking . . .");
+        document.getElementById("aiResponse").textContent = "Thinking . . .";     // setText("aiResponse", "Thinking . . .");
         // sendToModel();
-        console.log("userInput: " + userInput);
     } else {
-        //setStyle("userInput", "border: 2px solid red;");
-        addClass("userInput", "red-border")
-        addClass("userInput", "error-placeholder")
-        changePlaceholder("Please enter a question.");
+        errorDetected();
         setTimeout(() => {
             alert("Please enter a question.");
         }, 50);
     }
 });
 
-    // remove input field styling when user starts typing
+// reset input when changed
+// onEvent("userInput", "input", function () {
 document.getElementById("userInput").addEventListener("input", () => {
-    removeClass("userInput", "error-placeholder");
-    removeClass("userInput", "red-border");
+    document.getElementById("userInput").classList.remove("error-placeholder");     // removeClass("userInput", "error-placeholder");
 });
 
+// change placeholder value
+function changePlaceholder(string) {
+    document.getElementById("userInput").placeholder = string;      // setHTMLProperty("userInput", "placeholder", string);
+}
 
+function errorDetected() {
+    document.getElementById("userInput").classList.add("error-placeholder");     // addClass("userInput", "error-placeholder");
+    changePlaceholder("Please enter a question.");
+}
+
+
+// send ai request
 function sendToModel() {
     console.log("send to model called");
 
@@ -81,6 +87,3 @@ function sendToModel() {
 
 
 
-function changePlaceholder(string) {
-    document.getElementById("userInput").placeholder = string;
-}

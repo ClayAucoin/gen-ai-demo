@@ -2,7 +2,7 @@
   color: var(--bs-danger);
 }
 
-.red-border {
+.error-placeholder {
   font-style: italic;
   border: 2px solid red
 }
