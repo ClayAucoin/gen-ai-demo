@@ -1,17 +1,25 @@
-console.log("script.js file says hello.")
+console.log("chatbot.js file says hello.")
 
 setValue("userInput", "");
 
 let botReply = "";
+let userInput = "";
 
 onEvent("sendButton", "click", function () {
 
-    setText("aiResponse", getValue("userInput"));
+    userInput = getValue("userInput")
 
+    if (userInput) {
+        sendToModel();
+    } else {
+        alert("Please enter a question.");
+    }
 });
 
-function sendToModel(){
+function sendToModel() {
     console.log("send to model called");
+
+    setText("aiResponse", "Thinking...");
 
     async function query(data) {
         const response = await fetch(
@@ -33,12 +41,14 @@ function sendToModel(){
         messages: [
             {
                 role: "user",
-                content: "What is the capital of France?",
+                content: userInput,
             },
         ],
         model: "meta-llama/Llama-3.3-70B-Instruct:fireworks-ai",
     }).then((response) => {
-        console.log(JSON.stringify(response));
+        botReply = response.choices[0].message.content;
+        console.log(botReply);
+        setText("aiResponse", botReply);
     });
 
 }
