@@ -1,0 +1,8 @@
+.error-placeholder::placeholder {
+  color: var(--bs-danger);
+}
+
+.red-border {
+  font-style: italic;
+  border: 2px solid red
+}

@@ -23,12 +23,12 @@
 
 <body>
 
-    <div class="container myContainer d-flex justify-content-center">
-        <div class="card mx-auto p-5" style="width: 30rem;">
+    <div class="container myContainer d-flex justify-content-center mt-4">
+        <div class="card mx-auto p-4" style="width: 30rem;">
 
-            <h1 class="ttext-primary text-nowrap">Search AI</h1>
+            <div class="text-center"><h1 class="text-primary text-nowrap">Search AI</h1></div>
 
-            <div class="card-body border">
+            <div id="temp" class="card-body">
 
                 <div class="d-flex align-items-end overflow-hidden border border-bottom-0" style="height: 200px;">
                     <div class="overflow-y-auto">
@@ -39,11 +39,12 @@
                     </div>
                 </div>
                 <div class="input-group">
-                    <input id="userInput" type="text" class="form-control rounded-0" placeholder="Your sentence here...">
+                    <input id="userInput" type="text" class="form-control rounded-0">
                     <button id="sendButton" class="btn btn-light btn-outline-dark rounded-0" type="button">
                         Send
                     </button>
                 </div>
+                <!-- <div id="validationMessage" class="text-danger border border-danger align-middle mt-2">something</div> -->
             </div>
         </div>
     </div>
