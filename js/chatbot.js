@@ -50,7 +50,8 @@ document.getElementById("sendButton").addEventListener("click", () => {
     userInput = document.getElementById("userInput").value
 
     if (userInput) {
-        document.getElementById("aiResponse").textContent = "Thinking . . .";
+        // document.getElementById("aiResponse").textContent = "Thinking . . .";
+        document.getElementById("aiResponse").innerHTML = "Thinking . . .<br>Not sending to model, just testing.";
         // sendToModel();
     } else {
 
