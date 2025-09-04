@@ -155,6 +155,7 @@ function disableButton(id, status) {
 }
 
 
+
 // **** bootstrap modal ****
 function nudgeEmptyInput() {
     const input = document.getElementById("userInput");
@@ -230,3 +231,4 @@ function hideModal() {
     const modal = bootstrap.Modal.getInstance(modalEl);
     if (modal) modal.hide();
 }
+
