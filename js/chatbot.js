@@ -21,13 +21,13 @@ changePlaceholder("Your sentence here...");
 
 // get and set validation text
 validationType = document.querySelector('input[name="validationType"]:checked').value;
-radioChoice.textContent = validationType;
+// radioChoice.textContent = validationType;
 
 
 document.querySelectorAll('input[name="validationType"]').forEach(r => {
     r.addEventListener('change', (e) => {
         validationType = e.target.value;
-        radioChoice.textContent = validationType;
+        // radioChoice.textContent = validationType;
         
         resetUserInput();
         clearError();
@@ -46,8 +46,8 @@ sendBtn.addEventListener("click", () => {
     userInput = userInputField.value
 
     if (userInput) {
-        // aiResponse.textContent = "Thinking . . .";        // orig
         aiResponse.innerHTML = "Thinking . . .<br>Not sending to model, just testing.";      // testing
+        // aiResponse.textContent = "Thinking . . .";        // orig
         // sendToModel();
     } else {
 
@@ -89,7 +89,7 @@ function resetUserInput(){
 function sendToModel() {
     console.log("send to model called");
 
-    setStyle("aiResponse", "font-style: normal;");
+    document.getElementById("aiResponse").style.cssText = "font-style: normal;";
 
     async function query(data) {
         const response = await fetch(
