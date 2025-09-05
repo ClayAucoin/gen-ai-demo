@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         selectedModel = modelsSelect.value;  // update variable
         display.textContent = selectedModel; // update display
         console.log("Selected model is:", selectedModel);
+        setFocusOnField();
     });
 });
 

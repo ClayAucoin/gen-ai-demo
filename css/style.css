@@ -39,6 +39,22 @@
 }
 
 
+/* radio button */
+.form-check-input.small-radio {
+  width: 0.85em;
+  height: 0.85em;
+}
+.form-check.align-center {
+  display: flex;
+  align-items: center;
+}
+.form-check.align-center .form-check-input {
+  margin-right: .5rem; /* or use Bootstrap's .me-2 */
+}
+.form-check.align-center .form-check-label {
+  margin-bottom: 0;
+}
+
 
 /* HTML :modal */
 

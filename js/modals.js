@@ -17,8 +17,6 @@ closeHTMLModalBtn.addEventListener('click', () => {
 
 
 
-userInputField.addEventListener("input", () => { clearError(); });            // reset input when changed
-
 function setFocusOnField() { userInputField.focus(); }
 function changePlaceholder(string) { userInputField.placeholder = string; }
 function errorDetected() { userInputField.classList.add("input-error"); }
@@ -64,14 +62,14 @@ function showModal({ title = "Notice", message = "" }) {
     });
 }
 
-// Promise-based alert that lets the browser paint first
+// promise-based alert that lets the browser paint first
 function alertAfterPaint(message) {
     return new Promise((resolve) => {
         requestAnimationFrame(() => {
             setTimeout(() => {
                 alert("Please enter a question.");
-            }, 50);   // blocks until dismissed
-            resolve();        // resumes after user clicks OK
+            }, 50);         // blocks until dismissed
+            resolve();      // resumes after user clicks OK
         });
     });
 }
@@ -82,7 +80,7 @@ function hideModal() {
     if (modal) modal.hide();
 }
 
-// Focus helper
+// focus helper
 function setFocusOnField() {
     const el = userInputField;
     if (!el) return;
