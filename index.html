@@ -63,16 +63,22 @@
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="validationType" id="radioTimeout" value="timeout">
-                <label class="form-check-label" for="radioTimeout">
-                    Timeout Before Alert
+                <input class="form-check-input" type="radio" name="validationType" id="radioHTMLModal" value="html">
+                <label class="form-check-label" for="radioHTMLModal">
+                    HTML Modal
                 </label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="validationType" id="radioDisableButton"
                     value="disable">
                 <label class="form-check-label" for="radioDisableButton">
-                    Disable Button
+                    Button Disable (fake)
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="validationType" id="radioTimeout" value="timeout">
+                <label class="form-check-label" for="radioTimeout">
+                    Alert
                 </label>
             </div>
             <!-- <div id="radioChoice">Choice</div> -->
@@ -80,7 +86,25 @@
     </div>
 
 
-    <!-- modal -->
+    <!-- html modal -->
+    <dialog id="htmlModal" class="bs-modal" aria-labelledby="bsDialogLabel" aria-describedby="bsDialogBody">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="htmlDialogLabel">Title</h1>
+                    <!-- <button type="button" class="btn-close" aria-label="Close" data-dismiss="dialog"></button> -->
+                </div>
+                <div class="modal-body" id="htmlDialogBody">
+                    Your content goes here.
+                </div>
+                <div class="modal-footer">
+                    <button id="closeHTMLModalBtn" type="button" class="btn btn-primary">OK</button>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- bootstrap modal -->
     <div class="modal fade" id="appModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
