@@ -34,21 +34,19 @@
 
                 <div id="temp" class="card-body">
 
-                    <div class="d-flex align-items-end overflow-hidden border border-bottom-0 rounded-top" style="height: 200px;">
-                        <div class="overflow-y-auto">
-                            <div class="text-balance p-3 pt-6 text-center text-sm text-gray-400"></div>
-                            <div id="aiResponse" class="flex flex-col items-end px-3 pt-3 pb-2">
-                                Result will go here.
+                    <div class="border border-bottom-0 rounded-top">
+                        <div class="d-flex flex-column">
+                            <div id="userQuestion" class="p-2 text-sm text-gray-400 border-bottom"></div>
+                            <div id="aiResponse" class="px-3 pt-3 pb-2 mb-2 overflow-auto">
+                                Result will go here…
                             </div>
                         </div>
                     </div>
                     <div class="input-group">
                         <input id="userInput" type="text" class="form-control rounded-0">
-                        <button id="sendButton" class="btn btn-light btn-outline-dark rounded-0" type="button">
-                            Send
-                        </button>
+                        <button id="sendButton" class="btn btn-light btn-outline-dark rounded-0" type="button">Send</button>
+                        <a id="resetButton" class="btn btn-light btn-outline-dark rounded-0" type="button">Reset</a>
                     </div>
-                    <!-- <div id="validationMessage" class="text-danger border border-danger align-middle mt-2">something</div> -->
                 </div>
             </div>
         </div>
@@ -59,23 +57,24 @@
                     <h5>Select a pop-up type</h5>
                 </div>
                 <div class="form-check align-center">
-                    <input class="form-check-input small-radio align-middle" type="radio" name="validationType" id="radioHTMLModal" value="html"
-                        checked>
+                    <input class="form-check-input small-radio align-middle" type="radio" name="validationType"
+                        id="radioHTMLModal" value="html" checked>
                     <label class="form-check-label" for="radioHTMLModal">HTML Modal</label>
                 </div>
                 <div class="form-check align-center">
-                    <input class="form-check-input small-radio align-middle" type="radio" name="validationType" id="radioModal" value="modal">
+                    <input class="form-check-input small-radio align-middle" type="radio" name="validationType"
+                        id="radioModal" value="modal">
                     <label class="form-check-label" for="radioModal">Bootstrap Modal</label>
                 </div>
                 <div class="form-check align-center">
-                    <input class="form-check-input small-radio align-middle" type="radio" name="validationType" id="radioDisableButton"
-                        value="disable">
+                    <input class="form-check-input small-radio align-middle" type="radio" name="validationType"
+                        id="radioDisableButton" value="disable">
                     <label class="form-check-label" for="radioDisableButton">Button Disable (fake)</label>
                 </div>
                 <div class="form-check align-center">
-                    <input class="form-check-input small-radio align-middle" type="radio" name="validationType" id="radioTimeout"
-                        value="timeout">
-                    <label class="form-check-label" for="radioTimeout">Alert</label>
+                    <input class="form-check-input small-radio align-middle" type="radio" name="validationType"
+                        id="radioAlert" value="alert">
+                    <label class="form-check-label" for="radioAlert">Alert</label>
                 </div>
             </div>
 
@@ -106,7 +105,8 @@
                     Your content goes here.
                 </div>
                 <div class="modal-footer">
-                    <button id="closeHTMLModalBtn" type="button" class="btn btn-primary">OK</button>
+                    <!-- <button class="btn btn-secondary" type="button" data-cancel>Cancel</button> -->
+                    <button id="closeHTMLModalBtn" type="button" class="btn btn-primary" data-ok>OK</button>
                 </div>
             </div>
         </div>
@@ -130,8 +130,9 @@
 
     <!-- <script src='js/helpers-full.js'></script> -->
     <script src='js/variables.js'></script>
-    <script src='js/radio-buttons.js'></script>
     <script src='js/secret-variables.js'></script>
+    <script src='js/radio-buttons.js'></script>
+    <script src='js/dropdown.js'></script>
     <script src='js/modals.js'></script>
     <script src='js/models.js'></script>
     <script src='js/chatbot.js'></script>

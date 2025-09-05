@@ -55,6 +55,13 @@
   margin-bottom: 0;
 }
 
+#aiResponse {
+  min-height: 50px;     /* always at least 50px tall */
+  max-height: 300px;    /* never grow taller than 300px */
+  overflow-y: auto;     /* scroll if content exceeds max-height */
+}
+
+
 
 /* HTML :modal */
 

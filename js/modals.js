@@ -11,22 +11,10 @@ function openHTMLModal() {
 }
 
 closeHTMLModalBtn.addEventListener('click', () => {
-    hmtlModal.close(); // Closes the modal dialog
+    hmtlModal.close();
     setFocusOnField();
 });
 
-
-
-function setFocusOnField() { userInputField.focus(); }
-function changePlaceholder(string) { userInputField.placeholder = string; }
-function errorDetected() { userInputField.classList.add("input-error"); }
-function resetUserInput() { userInputField.value = ""; }
-
-function clearError() {
-    userInputField.classList.remove("input-error");
-    aiResponse.textContent = "Result will go here.";
-    sendBtn.classList.remove("disabled-look");
-}
 
 
 // **** bootstrap modal ****
@@ -68,8 +56,8 @@ function alertAfterPaint(message) {
         requestAnimationFrame(() => {
             setTimeout(() => {
                 alert("Please enter a question.");
-            }, 50);         // blocks until dismissed
-            resolve();      // resumes after user clicks OK
+            }, 50);
+            resolve();
         });
     });
 }

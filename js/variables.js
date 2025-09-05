@@ -2,7 +2,21 @@ let botReply = "";
 let userInput = "";
 let dialogTitle = "";
 let dialogMessage = "";
-let modalAction = "";
+let selectedModel = "";
+let modelAction = "";
+let sendClick = false;
 let userInputField = document.getElementById("userInput");
-let sendBtn = document.getElementById("sendButton");
+let sendButton = document.getElementById("sendButton");
+let resetButton = document.getElementById("resetButton");
 let aiResponse = document.getElementById("aiResponse");
+let userQuestion = document.getElementById("userQuestion");
+
+
+const MODELS = [
+    { label: "OpenAI", value: "openai", action: "openai/gpt-oss-120b:fireworks-ai" },
+    { label: "Meta Llama AI", value: "meta", action: "meta-llama/Llama-3.1-405B-Instruct:fireworks-ai" },
+    { label: "Sentient AGI", value: "sentient", action: "SentientAGI/Dobby-Unhinged-Llama-3.3-70B:fireworks-ai" },
+    { label: "Qwen AI", value: "qwen", action: "Qwen/Qwen3-Coder-480B-A35B-Instruct:fireworks-ai" },
+    { label: "DeepSeek AI", value: "deepseek", action: "deepseek-ai/DeepSeek-R1:fireworks-ai" },
+];
+
