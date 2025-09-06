@@ -1,0 +1,63 @@
+name: Deploy to GitHub Pages (auto *_TOKEN substitution)
+
+on:
+  push:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    # 👇 Expose secrets here. Any ending in _TOKEN will be picked up automatically.
+    env:
+      HF_TOKEN: ${{ secrets.HF_TOKEN }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Get repo name
+        run: echo "REPO_NAME=${GITHUB_REPOSITORY##*/}" >> $GITHUB_ENV
+
+      # (Optional) Build step if needed
+      # - name: Build site
+      #   run: npm run build
+
+      - name: Set site dir
+        run: echo "SITE_DIR=." >> $GITHUB_ENV   # change to dist if you build there
+
+      - name: Replace *_TOKEN placeholders with env values
+        working-directory: ${{ env.SITE_DIR }}
+        run: |
+          echo "Replacing *_TOKEN placeholders in ${SITE_DIR}..."
+          env | grep '_TOKEN=' | while IFS='=' read -r key val; do
+            # Escape / & " for sed safety
+            esc_val=$(printf '%s' "$val" | sed 's/[\/&"]/\\&/g')
+            echo " - $key → \"${esc_val}\""
+            find . -type f \( -name "*.html" -o -name "*.js" -o -name "*.css" -o -name "*.json" \) -print0 |
+              xargs -0 sed -i "s|\\b${key}\\b|\"${esc_val}\"|g"
+          done
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ env.SITE_DIR }}
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

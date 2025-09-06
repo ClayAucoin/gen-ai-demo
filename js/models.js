@@ -2,10 +2,12 @@
 function sendToModelTest() {
     console.log("send to model TEST called");
     console.log("inside model test: " + selectedModel);
-    
-    userQuestion.innerHTML = "You asked: <b>"+ userInput +"</b>";
 
-    console.log("sendTest: "+ getModelAction(selectedModel));
+    userQuestion.innerHTML = "You asked: <b>" + userInput + "</b>";
+    resetButton.classList.remove("d-none");
+
+
+    console.log("sendTest: " + getModelAction(selectedModel));
 }
 
 
@@ -14,7 +16,8 @@ function sendToModel() {
     console.log("send to model called");
 
     aiResponse.textContent.style.cssText = "font-style: normal;";
-    userQuestion.innerHTML = "You asked: <b>"+ userInput +"</b>";
+    userQuestion.innerHTML = "You asked: <b>" + userInput + "</b>";
+    resetButton.classList.remove("d-none");
 
     async function query(data) {
         const response = await fetch(
@@ -43,7 +46,7 @@ function sendToModel() {
     }).then((response) => {
         botReply = response.choices[0].message.content;
         console.log(botReply);
-        console.log("using model: "+ selectedModel);
+        console.log("using model: " + selectedModel);
         document.getElementById("aiResponse").textContent = botReply;
     });
 }

@@ -36,17 +36,24 @@
 
                     <div class="border border-bottom-0 rounded-top">
                         <div class="d-flex flex-column">
-                            <div id="userQuestion" class="p-2 text-sm text-gray-400 border-bottom"></div>
+                            <div class="p-2 text-sm text-gray-400 border-bottom d-flex align-items-center">
+                                <span id="userQuestion" class="flex-grow-1"></span>
+                                <a id="resetButton" class="btn btn-light btn-outline-dark rounded-0 ms-auto"
+                                    type="button">Reset</a>
+                            </div>
+
                             <div id="aiResponse" class="px-3 pt-3 pb-2 mb-2 overflow-auto">
                                 Result will go here…
                             </div>
                         </div>
                     </div>
+
                     <div class="input-group">
                         <input id="userInput" type="text" class="form-control rounded-0">
-                        <button id="sendButton" class="btn btn-light btn-outline-dark rounded-0" type="button">Send</button>
-                        <a id="resetButton" class="btn btn-light btn-outline-dark rounded-0" type="button">Reset</a>
+                        <button id="sendButton" class="btn btn-light btn-outline-dark rounded-0"
+                            type="button">Send</button>
                     </div>
+
                 </div>
             </div>
         </div>

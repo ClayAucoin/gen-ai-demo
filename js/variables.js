@@ -17,6 +17,6 @@ const MODELS = [
     { label: "Meta Llama AI", value: "meta", action: "meta-llama/Llama-3.1-405B-Instruct:fireworks-ai" },
     { label: "Sentient AGI", value: "sentient", action: "SentientAGI/Dobby-Unhinged-Llama-3.3-70B:fireworks-ai" },
     { label: "Qwen AI", value: "qwen", action: "Qwen/Qwen3-Coder-480B-A35B-Instruct:fireworks-ai" },
-    { label: "DeepSeek AI", value: "deepseek", action: "deepseek-ai/DeepSeek-R1:fireworks-ai" },
+    // { label: "DeepSeek AI", value: "deepseek", action: "deepseek-ai/DeepSeek-R1:fireworks-ai" },
 ];
 

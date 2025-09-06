@@ -12,6 +12,7 @@
 setFocusOnField();
 resetUserInput();
 changePlaceholder("Your sentence here...");
+resetButton.classList.add("d-none");
 
 userInputField.addEventListener("input", () => { clearError(); });            // reset input when changed
 
@@ -72,11 +73,13 @@ resetButton.addEventListener("click", () => {
     clearState();
 });
 
-function clearState(){
+function clearState() {
     aiResponse.textContent = "Result will go here...";
     userQuestion.textContent = "";
     clearError()
     resetUserInput();
+    resetButton.classList.add("d-none");
+
 }
 
 function setFocusOnField() { userInputField.focus(); }
@@ -91,3 +94,26 @@ function clearError() {
 }
 
 
+/**
+ * Show or hide element.
+ * @param {string} id - The id of button.
+ * @param {boolean} [status=false] - show or hide.
+ * 
+ * @example
+ * visibleElement("ID", true);
+ */
+function visibleElement(id, status) {
+    const el = document.getElementById(id)
+    if (!el) {
+        console.warn("visibleElement: Element with id '" + id + "' not found.");
+        return;
+    } else {
+        if (status == true) {
+            el.classList.remove("d-none");
+            console.info("visibleElement: Element with id '" + id + "' has been shown.");
+        } else {
+            el.classList.add("d-none");
+            console.info("visibleElement: Element with id '" + id + "' has been hidden.");
+        }
+    }
+}
