@@ -1,3 +1,5 @@
+const $ = (id) => document.getElementById(id);
+
 let botReply = "";
 let userInput = "";
 let dialogTitle = "";
@@ -5,11 +7,11 @@ let dialogMessage = "";
 let selectedModel = "";
 let modelAction = "";
 let sendClick = false;
-let userInputField = document.getElementById("userInput");
-let sendButton = document.getElementById("sendButton");
-let resetButton = document.getElementById("resetButton");
-let aiResponse = document.getElementById("aiResponse");
-let userQuestion = document.getElementById("userQuestion");
+let userInputField = $("userInput");
+let sendButton = $("sendButton");
+let resetButton = $("resetButton");
+let aiResponse = $("aiResponse");
+let userQuestion = $("userQuestion");
 
 
 const MODELS = [

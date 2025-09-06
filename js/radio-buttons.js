@@ -12,9 +12,9 @@ document.querySelectorAll('input[name="validationType"]').forEach(r => {
         setFocusOnField();
 
         if (validationType == "disable") {
-            sendBtn.classList.add("disabled-look");
+            sendButton.classList.add("disabled-look");
         } else {
-            sendBtn.classList.remove("disabled-look");
+            sendButton.classList.remove("disabled-look");
         }
     });
 });

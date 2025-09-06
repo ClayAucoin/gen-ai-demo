@@ -8,6 +8,10 @@
 // console.log("chatbot.js file says hi.");
 
 
+// let topNumber = $("topNumber").value;
+// $("howMany").textContent = topNumber;
+
+
 // set userInput field parameters
 setFocusOnField();
 resetUserInput();
@@ -94,26 +98,3 @@ function clearError() {
 }
 
 
-/**
- * Show or hide element.
- * @param {string} id - The id of button.
- * @param {boolean} [status=false] - show or hide.
- * 
- * @example
- * visibleElement("ID", true);
- */
-function visibleElement(id, status) {
-    const el = document.getElementById(id)
-    if (!el) {
-        console.warn("visibleElement: Element with id '" + id + "' not found.");
-        return;
-    } else {
-        if (status == true) {
-            el.classList.remove("d-none");
-            console.info("visibleElement: Element with id '" + id + "' has been shown.");
-        } else {
-            el.classList.add("d-none");
-            console.info("visibleElement: Element with id '" + id + "' has been hidden.");
-        }
-    }
-}

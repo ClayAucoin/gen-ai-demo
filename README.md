@@ -1,3 +1,22 @@
+```js
+const $ = (id) => document.getElementById(id);
+let fieldID = $("fieldID").value;
+$("displayID").textContent = fieldID;
+
+$("button").addEventListener("click", () => {
+    $("titleID").textContent = "Page title in English";
+});
+
+$("selectID").addEventListener("change", () => {
+    selectID = $("selectID").value;
+    $("displayID").textContent = selectID;
+}
+
+
+
+```
+
+
 # 🧪 Chatbot Project - Leveled Learning Guide
 
 Welcome to the **Chatbot Project**! This guide breaks down the entire project into 32 manageable levels that build upon each other to create a complete AI chatbot application.

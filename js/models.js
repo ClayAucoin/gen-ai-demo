@@ -47,7 +47,7 @@ function sendToModel() {
         botReply = response.choices[0].message.content;
         console.log(botReply);
         console.log("using model: " + selectedModel);
-        document.getElementById("aiResponse").textContent = botReply;
+        $("aiResponse").textContent = botReply;
     });
 }
 

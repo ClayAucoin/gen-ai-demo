@@ -19,8 +19,8 @@ function getModelAction(value) {
 
 // Example wire-up
 document.addEventListener("DOMContentLoaded", () => {
-    const select = document.getElementById("models");
-    const display = document.getElementById("modelsChoice");
+    const select = $("models");
+    const display = $("modelsChoice");
 
     populateModelSelect(select);
 
