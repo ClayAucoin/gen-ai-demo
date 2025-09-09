@@ -62,6 +62,10 @@
 }
 
 
+.testBorder {
+  border: 5px solid red;
+}
+
 
 /* HTML :modal */
 
