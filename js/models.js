@@ -1,8 +1,21 @@
 
+// set to true to attach ai response
+runLive = true;
+
+function run_Production() {
+    if (runLive == true) {
+        sendToModel(value);         // production
+    } else {
+        sendToModelTest(value);     // test
+    }
+}
+
+
 function sendToModelTest() {
     console.log("send to model TEST called");
     console.log("inside model test: " + selectedModel);
 
+    $("aiResponse").style.cssText = "font-style: normal;";
     userQuestion.innerHTML = "You asked: <b>" + userInput + "</b>";
     resetButton.classList.remove("d-none");
 
@@ -15,7 +28,7 @@ function sendToModelTest() {
 function sendToModel() {
     console.log("send to model called");
 
-    aiResponse.textContent.style.cssText = "font-style: normal;";
+    $("aiResponse").style.cssText = "font-style: normal;";
     userQuestion.innerHTML = "You asked: <b>" + userInput + "</b>";
     resetButton.classList.remove("d-none");
 

@@ -10,7 +10,7 @@ let sendClick = false;
 let userInputField = $("userInput");
 let sendButton = $("sendButton");
 let resetButton = $("resetButton");
-let aiResponse = $("aiResponse");
+// let aiResponse = $("aiResponse");
 let userQuestion = $("userQuestion");
 
 
